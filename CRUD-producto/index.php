@@ -1,5 +1,12 @@
+<?php
+
+$id=$_GET['id'];
+$sql=$conexion->query("SELECT * FROM producto WHERE id_producto=$id")
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +20,7 @@
     <H1 class="text-center p-3">CRUD EN PHP Y MYSQL | BOOTSTRAP</H1>
     <div class="container-fluid row">
         <form class="col-4 p-3" method="post">
-            <h3 class="text-center text-secondary">Registro de producto</h3>
+            <h3 class="text-center alert alert-secondary">Registro de producto</h3>
             <?php
             include 'modelo/conexion.php';
             include 'controlador/registro_producto.php';
@@ -60,7 +67,7 @@
                                 <td><?= $datos->precio ?></td>
                                 <td><?= $datos->cantidad ?></td>
                                 <td><?= $datos->descripcion ?></td>
-                                <td><a href="modificar_producto.php" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <td><a href="modificar_producto.php?id=<?= $datos->id_producto ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

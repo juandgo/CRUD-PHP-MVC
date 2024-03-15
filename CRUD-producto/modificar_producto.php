@@ -1,4 +1,9 @@
 <?php
+// include 'modelo/conexion.php';
+
+// $id = $_GET['id'];
+
+// $sql = $conexion->query("SELECT * FROM producto WHERE id_producto = $id");
 
 ?>
 
@@ -14,28 +19,27 @@
 </head>
 
 <body>
-    <form class="col-4 p-3" method="post">
-        <h3 class="text-center text-secondary">Modificar producto</h3>
-        <?php
-        include 'modelo/conexion.php';
-        include 'controlador/registro_producto.php';
-        ?>
-        <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="txt" class="form-control" id="name" name="name">
-        </div>
-        <div class="mb-3">
-            <label for="price" class="form-label">Precio</label>
-            <input type="txt" class="form-control" id="price" name="price">
-        </div>
-        <div class="mb-3">
-            <label for="amount" class="form-label">Cantidad</label>
-            <input type="txt" class="form-control" id="amount" name="amount">
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="description" name="description">
-        </div>
+    <form class="col-4 p-3 m-auto" method="post">
+        <h5 class="text-center alert alert-secondary">Modificar producto</h5>
+        <!-- <?php while ($datos = $sql->fetch_object()) { ?> -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="txt" class="form-control" id="name" name="name" value="<?= $datos->$nombre ?>">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio</label>
+                <input type="txt" class="form-control" id="price" name="price">
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Cantidad</label>
+                <input type="txt" class="form-control" id="amount" name="amount">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="description" name="description">
+            </div>
+        <!-- <?php } ?> -->
+
         <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Submit</button>
     </form>
 </body>
