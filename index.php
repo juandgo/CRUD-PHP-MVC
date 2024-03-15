@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <H1 class="text-center p-3">Hello world!</H1>
+    <H1 class="text-center p-3">CRUD EN PHP Y MYSQL | BOOTSTRAP</H1>
     <div class="container-fluid row">
         <form class="col-4 p-3" method="post">
             <h3 class="text-center text-secondary">Registro de persona</h3>
             <?php
-                include 'modelo/connection.php';
-                include 'controlador/registro_persona.php';
+            include 'modelo/conexion.php';
+            include 'controlador/registro_persona.php';
             ?>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -57,20 +57,19 @@
                     <tbody>
                         <?php
                         include 'modelo/conexion.php';
-                        $sql=$conexion->query("SELECT * FROM persona");
-                        while($datos=$sql->fetch_object()){?>
+                        $sql = $conexion->query("SELECT * FROM persona");
+                        while ($datos = $sql->fetch_object()) { ?>
                             <tr class="">
-                                <td scope="row">R1C1</td>
-                                <td>R1C2</td>
-                                <td>R1C3</td>
-                                <td>R1C3</td>
-                                <td>R1C3</td>
-                                <td>R1C3</td>
+                                <td><?= $datos->id_persona ?></td>
+                                <td><?= $datos->nombre ?></td>
+                                <td><?= $datos->apellido ?></td>
+                                <td><?= $datos->dni ?></td>
+                                <td><?= $datos->fecha_nac ?></td>
+                                <td><?= $datos->email ?></td>
                                 <td><a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
-
                         <?php }
                         ?>
                     </tbody>
