@@ -19,24 +19,20 @@
             include 'controlador/registro_producto.php';
             ?>
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="txt" class="form-control" id="nombre" name="nombre">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="txt" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="txt" class="form-control" id="apellido" name="apellido">
+                <label for="price" class="form-label">Precio</label>
+                <input type="txt" class="form-control" id="price" name="price">
             </div>
             <div class="mb-3">
-                <label for="dni" class="form-label">Documento de Identidad</label>
-                <input type="txt" class="form-control" id="dni" name="dni">
+                <label for="amount" class="form-label">Cantidad</label>
+                <input type="txt" class="form-control" id="amount" name="amount">
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="date" name="date">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <label for="description" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="description" name="description">
             </div>
             <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Submit</button>
         </form>
@@ -56,16 +52,15 @@
                     <tbody>
                         <?php
                         include 'modelo/conexion.php';
-                        $sql = $conexion->query("SELECT * FROM persona");
+                        $sql = $conexion->query("SELECT * FROM producto");
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr class="">
-                                <td><?= $datos->id_persona ?></td>
+                                <td><?= $datos->id_producto ?></td>
                                 <td><?= $datos->nombre ?></td>
-                                <td><?= $datos->apellido ?></td>
-                                <td><?= $datos->dni ?></td>
-                                <td><?= $datos->fecha_nac ?></td>
-                                <td><?= $datos->email ?></td>
-                                <td><a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <td><?= $datos->precio ?></td>
+                                <td><?= $datos->cantidad ?></td>
+                                <td><?= $datos->descripcion ?></td>
+                                <td><a href="modificar_producto.php" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
